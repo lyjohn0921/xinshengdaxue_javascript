@@ -44,4 +44,10 @@ Now, I would like to talk about the rule of identified. There are three popular 
     At last, offical doc would like to use Hungarian notation, here is the link of information about it.     
     //https://en.wikipedia.org/wiki/Hungarian_notation
 
+Addtionally,
+
+    <\n>
+
+in Javascript is meaning make the empty line, and change to the next line.
+
 In conclusion, in lesson2, the goal of it is understanding variables and value, the new pint I got from this lecture is the purpose of code is deal with date then output the result, and I need to use the best way to slove my problem.
