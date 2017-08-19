@@ -1,4 +1,4 @@
-# lesson3_第三次作业_交互图
+﻿# lesson3_第三次作业_交互图
 
 This is the addtional homework for lesson3. The instructor suggested two main points: 
 1. two examples about how date transmission between two devices.
@@ -28,4 +28,4 @@ On the other hand, the basic skill, how to name varible, is most imortant. The i
 1. 第74行代码，如果第6行代码不是4个数据，或者说不是偶数个数据，那样中间的数字就会重复输出。这样是不是要进行预先的length 判定，还是说在最后输出的时候进行删除重复项？但是数据库提取中，这样会无形曾加一组数据出来
 ----
 
-2. 老师教下抓包放包，或者有教程推荐吗？中英文都可以，之前自学不是很思想，今天写作业的时候，经常抱错
+2. 老师教下抓包放包，或者有教程推荐吗？中英文都可以，之前自学不是很思想，今天写作业的时候，经常报错
