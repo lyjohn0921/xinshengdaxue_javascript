@@ -1,2 +1,3 @@
-# xinshengdaxue_javascript
-老师，我再也不翘课了
+Welcome to the xinshengdaxue_javascript wiki!
+---
+念念不忘，必有回响
