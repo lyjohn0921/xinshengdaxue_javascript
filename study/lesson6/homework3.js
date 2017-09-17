@@ -1,42 +1,75 @@
 // 引用内置库
-const fs = require('fs');
+const fs = require("fs");
+const path = require("path");
 
 // 定义要查询的目标文件夹。
-const dirPathString = '../../../words-from-the-heart';
-// 定义输出的目标文件及其路径。
-const outputPathString = './write_file_sync.txt';
+const scanPathString = path.join(__dirname, "../../../words-from-the-heart");
 
-// ---------------------------------
-// 定义一个callback函数，用于接收读取文件夹内容后的结果
-function callback1(err, files) {
+// 定义输出的目标文件及其路径。
+const writePathString = path.join(__dirname, "./homework3.txt");
+
+// 保存的文件Striing;
+let saveScanFileString = "";
+// 搜索的文件类型;
+let findFileType = ".json";
+
+//写入文件function;
+function writeFile() {
+  function callback(err) {
     if (err) {
-      console.log('读取文件失败');
+      console.log("Failwriting");
+    } else {
+      console.log("Sucesswriting");
+    }
+  }
+  fs.writeFile(writePathString, saveScanFileString, callback);
+}
+
+//扫描文件function;
+//提供：扫描 total 文件个数，扫描目标类型文件个数，文件夹个数和非目标文件个数;
+function scanFile() {
+  function callback(err, files) {
+    if (err) {
+      console.log("Scan Fail");
       return;
     }
-  
-    if (files.length > 0) {
-      console.log(files);
+
+    if (files.length != 0) {
+      console.log("Find some files and folders");
+      var j = 0;
+      var k = 0;
+      var l = 0;
+      var m = 0;
+
+      for (var i = 0; i < files.length; i++) {
+        var eachFilesPath = path.join(scanPathString, files[i]);
+        var checkDirectry = fs.lstatSync(eachFilesPath).isDirectory();
+        if (checkDirectry == true) {
+          l = l + 1;
+        }
+
+        if (files[i].endsWith(findFileType)) {
+          saveScanFileString = saveScanFileString + files[i] + "\n";
+          j = j + 1;
+        } else {
+          k = k + 1;
+        }
+      }
+      m = i - l;
+      console.log("Total Find : " + i);
+      console.log("There is/are " + l + " Directiory(ies)");
+      console.log("Total files : " + m);
+      console.log(findFileType + " type files : " + j);
+      console.log(k - l + "file(s) is/are not " + findFileType + " files.");
+
+      saveScanFileString = saveScanFileString.trim();
+      writeFile();
     } else {
-      console.log('没有找到任何文件');
+      console.log("There is not any files.");
     }
   }
+  fs.readdir(scanPathString, callback);
+}
 
-
-// 定义文件内容变量fileContent
-const fileContent = fs.readdir(dirPathString, callback1);
-console.log(typeof fileContent);
-
-// ---------------------------------
-// 异步方案
-
-// 定义一个callback函数，用于接收写文件的返回结果
-function callback2(err) {
-    if (err) {
-      console.log('写文件失败');
-    } else {
-      console.log('写文件成功');
-    }
-  }
-
-//调用fs的writeFileSync函数来写文件
-fs.writeFile(outputPathString, fileContent, callback2);
+//写入代码嵌套在扫描代码中，不知到怎么做call back 来调取；
+scanFile();
