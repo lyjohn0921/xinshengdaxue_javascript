@@ -1,23 +1,23 @@
-function allCount(){
-    var allCount = 6;
-    var number = 0;
+function allCount() {
+  var allCount = 6;
+  var number = 0;
 
-    var result =  A(number,allCount);
-    if (result == true){
-        console.log("true");
-    } 
+  var result = A(number, allCount);
+  if (result == true) {
+    console.log("true");
+  }
 }
 
-function A(number,allCount){
-    console.log(number);
-    return B(number+1,allCount);
-    console.log(number);
+function A(number, allCount) {
+  console.log(number);
+  return B(number + 1, allCount);
+  console.log(number);
 }
 
-function B(number,allCount){
-    console.log(number);
-    return true;
-    console.log(number);
+function B(number, allCount) {
+  console.log(number);
+  return true;
+  console.log(number);
 }
 
 allCount();
